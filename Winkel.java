@@ -39,7 +39,7 @@ public class Winkel{
 	}
 
 	private static void doorwinkelen(Scanner sc, int totaal){
-		System.out.println("Wilt u (nog) wat kopen? (typ 1 voor ja)");
+		System.out.println("Wilt u (nog) wat kopen? (typ 1 voor ja, typ een ander getal voor nee)");
 		if(sc.nextInt() == 1) {
 			showItems();
 			System.out.println("Wat wilt u kopen?");
