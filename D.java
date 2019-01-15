@@ -13,8 +13,11 @@ class D{
 		//default age
 		int age = 15;
 		
+		System.out.println("Geef je leeftijd op: ");
+
 		Scanner sc = new Scanner(System.in);
 		age = sc.nextInt();
+		sc.close();
 
 		if(age < 16){
 			System.out.println("Je mag alleen fris drinken.");			
