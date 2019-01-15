@@ -5,6 +5,8 @@ class D{
 		int a;
 		a = 3;
 		System.out.println(a);
+		String b = "boss";
+		System.out.println(b);
 	}
 
 }
