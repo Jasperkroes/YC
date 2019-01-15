@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class D{
 
 	/**
@@ -7,7 +9,13 @@ class D{
 	* Je mag alles drinken als je 18 of ouder bent.
 	*/
 	public static void main(String[] args){
-		int age = 23;
+		
+		//default age
+		int age = 15;
+		
+		Scanner sc = new Scanner(System.in);
+		age = sc.nextInt();
+
 		if(age < 16){
 			System.out.println("Je mag alleen fris drinken.");			
 		} else if(age < 18){
