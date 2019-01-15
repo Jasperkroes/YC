@@ -7,6 +7,12 @@ class D{
 		System.out.println(a);
 		String b = "boss";
 		System.out.println(b);
+		char s = 105;
+		System.out.println(s);
+		s--;
+		System.out.println(s);
+		--s;
+		System.out.println(s);	
 	}
 
 }
