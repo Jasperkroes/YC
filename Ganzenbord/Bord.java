@@ -1,5 +1,7 @@
 package Ganzenbord;
 
+import Ganzenbord.Vakjes.Vakje;
+
 import java.util.ArrayList;
 
 public class Bord {
