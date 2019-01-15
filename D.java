@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class D{
 
 	public static void main(String[] args){
@@ -16,16 +14,16 @@ class Persoon{
 	private String geslacht;
 	private String naam;
 
-	public Persoon(String ges, String n){
+	Persoon(String ges, String n){
 		geslacht = ges;
 		naam = n;
 	}
 
-	public String getNaam() {
+	String getNaam() {
 		return this.naam;
 	}
 
-	public String getGeslacht() {
+	String getGeslacht() {
 		return this.geslacht;
 	}
 
