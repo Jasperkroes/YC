@@ -12,7 +12,7 @@ door winkelen totdat ze niet meer willen
 
 public class Winkel{
 
-	private static LinkedList<Product> items = new LinkedList<Product>();
+	private static LinkedList<Product> items = new LinkedList<>();
 
 	public static void main(String[] args){
 
@@ -24,44 +24,77 @@ public class Winkel{
 		items.add(p3);
 
 		Scanner sc = new Scanner(System.in);
-		int totaal = 0;
 
-		doorwinkelen(sc, totaal);
+		doorwinkelen(sc);
 		sc.close();
 	}
 
 	private static void showItems() {
-		int itemnumber = 1;
+		int itemNumber = 1;
 		for(Product p : items) {
-			System.out.println(itemnumber + ". " + p.toString());
-			itemnumber++;
+			System.out.println(itemNumber + ". " + p.toString());
+			itemNumber++;
 		}
 	}
 
-	private static void doorwinkelen(Scanner sc, int totaal){
+	private static void doorwinkelen(Scanner sc){
 		System.out.println("Wilt u (nog) wat kopen? (typ 1 voor ja, typ een ander getal voor nee)");
 		if(sc.nextInt() == 1) {
-			showItems();
-			System.out.println("Wat wilt u kopen?");
-			int keuze = sc.nextInt();
-			totaal += items.get(keuze - 1).price;
-			doorwinkelen(sc,totaal);
-
+			koopProduct(sc);
 		} else {
-			showtotal(totaal);
+			System.out.println("Wilt u (nog) een item retourneren? (typ 1 voor ja, typ een ander getal voor nee)");
+			if(sc.nextInt() == 1) {
+				retourneerProduct(sc);
+			} else {
+				showtotal();
+			}
 		}
 	}
 
-	private static void showtotal(int totaal){
-		System.out.println("Uw totaal is: " + totaal + " euro.");
+	private static void retourneerProduct(Scanner sc) {
+		showItemsSold();
+		System.out.println("Wat wilt u retourneren?");
+		int keuze = sc.nextInt();
+		Product p = items.get(keuze-1);
+		if(p.amountSold>0) {
+			p.amountSold--;
+			Product.totaleOmzet -= p.price;
+			doorwinkelen(sc);
+		} else {
+			System.out.println("U heeft geen " + p.name + " in uw mandje.");
+			doorwinkelen(sc);
+		}
+	}
+
+	private static void koopProduct(Scanner sc) {
+		showItems();
+		System.out.println("Wat wilt u kopen?");
+		int keuze = sc.nextInt();
+		Product p = items.get(keuze - 1);
+		p.amountSold++;
+		Product.totaleOmzet += p.price;
+		doorwinkelen(sc);
+	}
+
+	private static void showtotal(){
+		showItemsSold();
+		System.out.println("Uw totaal is: €" + Product.totaleOmzet);
+	}
+
+	private static void showItemsSold(){
+		int itemNumber = 1;
+		for (Product p: items) {
+			System.out.println("U heeft " + p.amountSold + " " + itemNumber + ". " + p.name+ " in uw mandje. Dit kost €" + (p.amountSold*p.price));
+			itemNumber++;
+		}
 	}
 
 }
 
 class Product{
-
-	private String name;
-	int price;
+	static int totaleOmzet;
+	String name;
+	int price, amountSold;
 
 	Product(String naam, int prijs){
 		this.name = naam;
@@ -69,6 +102,6 @@ class Product{
 	}
 
 	public String toString(){
-		return name + "\t" + price + " euro";
+		return name + "\t\t" + price + " euro";
 	}
 }
