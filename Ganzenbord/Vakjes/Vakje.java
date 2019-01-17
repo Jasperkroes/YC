@@ -1,21 +1,14 @@
 package Ganzenbord.Vakjes;
 
 public class Vakje {
-	private int vakNummer;
+	int vaknummer;
 
-	Vakje(int nummer) {
-		this.vakNummer = nummer;
+	public Vakje(int nummer){
+		this.vaknummer = nummer;
 	}
 
-	Vakje() {
-
-	}
-
-	public int getVakNummer() {
-		return vakNummer;
-	}
-
-	public void setVakNummer(int vakNummer) {
-		this.vakNummer = vakNummer;
+	@Override
+	public String toString() {
+		return "("+vaknummer+")";
 	}
 }
