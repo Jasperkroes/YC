@@ -1,15 +1,13 @@
 package Ganzenbord;
 
-import Ganzenbord.Vakjes.EindVakje;
-import Ganzenbord.Vakjes.StartVakje;
-import Ganzenbord.Vakjes.Vakje;
+import Ganzenbord.Vakjes.*;
 
 import java.util.ArrayList;
 
 public class Bord {
 
 	//het begin en het eind tellen hier ook voor mee.
-	private static final int AANTAL_VAKJES = 30;
+	private static final int AANTAL_VAKJES = 64;
 
 	private ArrayList<Vakje> vakjes = new ArrayList<Vakje>(AANTAL_VAKJES);
 
@@ -20,10 +18,29 @@ public class Bord {
 			vakjes.add(new Vakje(i));
 		}
 
-		//maak een startvakje
+		//maak een startvakje (0)
 		vakjes.set(0, new StartVakje(0));
-		//maak een eindvakje
+
+		//maak een eindvakje (64)
 		vakjes.set(AANTAL_VAKJES - 1, new EindVakje(AANTAL_VAKJES - 1));
+
+		//maak bruggen
+		//brug (6) - van 6 naar 12
+		vakjes.set(6, new BrugVakje(6,12));
+		//doolhof (42) - van 42 naar 39
+		vakjes.set(42, new BrugVakje(42, 39));
+		//dood (58) - van 58 naar start
+		vakjes.set(58, new BrugVakje(58, 0));
+
+		//maak put (31)
+		vakjes.set(31, new PutVakje(31));
+
+		//maak herberg (19)
+		vakjes.set(19, new HerbergVakje(19));
+
+		//maak gevangenis (52)
+		vakjes.set(52, new GevangenisVakje(52));
+
 	}
 
 	@Override
@@ -32,7 +49,26 @@ public class Bord {
 		for (Vakje v : vakjes) {
 			sb.append(v.toString()+"\n");
 		}
-		return sb.toString();
+		return sb.toString() + "\n" +
+			"\n" +
+			"                                                        _...--.\n" +
+			"                                        _____......----'     .'\n" +
+			"                                  _..-''                   .'\n" +
+			"                                .'                       ./\n" +
+			"                        _.--._.'                       .' |\n" +
+			"                     .-'           NIELS            .-.'  /\n" +
+			"                   .'   _.-.                     .  \\   '\n" +
+			"                 .'  .'   .'    _    .-.        / `./  :\n" +
+			"               .'  .'   .'  .--' `.  |  \\  |`. |     .'\n" +
+			"            _.'  .'   .' `.'       `-'   \\ / |.'   .'\n" +
+			"         _.'  .-'   .'     `-.            `      .'\n" +
+			"       .'   .'    .'          `-.._ _ _ _ .-.    :\n" +
+			"      /    /o _.-'               .--'   .'   \\   |\n" +
+			"    .'-.__..-'                  /..    .`    / .'\n" +
+			"  .'   . '                       /.'/.'     /  |\n" +
+			" `---'                                   _.'   '\n" +
+			"                                       /.'    .'\n" +
+			"                                        /.'/.'\n";
 	}
 
 

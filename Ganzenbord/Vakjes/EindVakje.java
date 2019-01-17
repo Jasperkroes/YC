@@ -10,6 +10,6 @@ public class EindVakje extends Vakje {
 
 	@Override
 	public String toString(){
-		return "Eind";
+		return super.toString() + "\tEind";
 	}
 }

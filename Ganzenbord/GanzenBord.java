@@ -35,20 +35,20 @@ public class GanzenBord{
 
 	private void initSpelers() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Hoeveel spelers doen er mee (max "+MAX_SPELERS+")");
+		System.out.println("Hoeveel spelers doen er mee? (max "+MAX_SPELERS+")");
 		int noOfSpelers = 0;
 		if(sc.hasNextInt()) {
 			noOfSpelers = sc.nextInt();
-			sc.close();
-		} else {
-			System.out.println("Voer een getal in");
-			sc.close();
-			initSpelers();
+			//sc.close();
+		} else if(sc.hasNext()){
+			System.out.println("Voer een getal in.");
 		}
 		if(noOfSpelers > 0) {
 			for(int i = 0; i < Math.min(MAX_SPELERS, noOfSpelers); i++) {
 				spelers.add(new Speler("Speler "+(i+1)));
 			}
+		} else {
+			System.out.println("Voer een getal groter dan 0 in.");
 		}
 	}
 
