@@ -32,7 +32,13 @@ public class Speler {
 
 	public boolean moetWachten() {
 		if (staatStilVoorBeurten > 0) {
+
 			staatStilVoorBeurten--;
+			if (staatStilVoorBeurten == 0) {
+				System.out.println(getNaam() + " mag volgende beurt weer lopen.");
+			} else {
+				System.out.println(getNaam() + " moet nog " + staatStilVoorBeurten + " beurten overslaan.");
+			}
 			return true;
 		} else
 		return isInDePut();

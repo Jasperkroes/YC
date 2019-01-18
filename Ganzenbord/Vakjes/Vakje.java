@@ -15,5 +15,6 @@ public class Vakje {
 	}
 
 	public void actieOpSpeler(Speler speler) {
+		System.out.println(speler.getNaam() + " is geland op " + Speler.speelveld.vakjes.get(vaknummer).toString() );
 	}
 }

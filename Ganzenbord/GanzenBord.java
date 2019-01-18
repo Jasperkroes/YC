@@ -32,6 +32,7 @@ public class GanzenBord{
 		//Laat het bord zien
 		System.out.println(bord.toString());
 
+		//start het spel met de eerste speler.
 		beginnenMaar();
 
 		//kijk wie de ultieme gans is
@@ -68,22 +69,19 @@ public class GanzenBord{
 	}
 
 	private void beginnenMaar() {
-		//TODO: laat spelers om de beurt gooien.
 		int currentPlayerIndex = 0;
 		Speler speler;
 		while(!gefinisht) {
 			//pak de volgende speler
 			speler = spelers.get(currentPlayerIndex);
 			//kijk of de speler mag werpen
-			if(speler.moetWachten()) {
-				continue;
+			if(!speler.moetWachten()) {
+				//zet de speler op een nieuwe positie
+				speler.loopNaar(werp());
+
+				//kijk of de speler gefinisht is
+				gefinisht = speler.isGefinisht();
 			}
-			//zet de speler op een nieuwe positie
-			speler.loopNaar(werp());
-
-			//kijk of de speler gefinisht is
-			gefinisht = speler.isGefinisht();
-
 			//verander de currentPlayerIndex naar de volgende speler
 			currentPlayerIndex = (currentPlayerIndex + 1) % spelers.size();
 		}
