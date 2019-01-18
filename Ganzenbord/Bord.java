@@ -9,7 +9,7 @@ public class Bord {
 	//het begin en het eind tellen hier ook voor mee.
 	public static final int AANTAL_VAKJES = 64;
 
-	ArrayList<Vakje> vakjes = new ArrayList<Vakje>(AANTAL_VAKJES);
+	public ArrayList<Vakje> vakjes = new ArrayList<Vakje>(AANTAL_VAKJES);
 
 
 	public Bord(){

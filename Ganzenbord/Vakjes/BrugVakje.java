@@ -24,6 +24,7 @@ public class BrugVakje extends Vakje{
 	@Override
 	public void actieOpSpeler(Speler sp) {
 		sp.setStaatOpVakje(brugDestination);
-		System.out.println("Lekker over dat bruggetje naar "+brugDestination+" lopen");
+		String destination = Speler.speelveld.vakjes.get(brugDestination).toString();
+		System.out.println(sp.getNaam() + " is onderweg naar "+ destination);
 	}
 }

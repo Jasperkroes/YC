@@ -3,7 +3,7 @@ package Ganzenbord;
 import Ganzenbord.Vakjes.Vakje;
 
 public class Speler {
-	private static Bord speelveld;
+	public static Bord speelveld;
 	private String naam;
 	private int staatStilVoorBeurten, staatOpVakje;
 	private boolean inDePut;

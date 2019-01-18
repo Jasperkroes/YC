@@ -48,7 +48,7 @@ public class GanzenBord{
 					"                                  _..-''                   .'\n" +
 					"                                .'                       ./\n" +
 					"                        _.--._.'                       .' |\n" +
-					"                     .-'        "+sp.getNaam()+"            .-.'  /\n" +
+					"                     .-'          "+sp.getNaam()+"          .-.'  /\n" +
 					"                   .'   _.-.                     .  \\   '\n" +
 					"                 .'  .'   .'    _    .-.        / `./  :\n" +
 					"               .'  .'   .'  .--' `.  |  \\  |`. |     .'\n" +
@@ -60,7 +60,8 @@ public class GanzenBord{
 					"  .'   . '                       /.'/.'     /  |\n" +
 					" `---'                                   _.'   '\n" +
 					"                                       /.'    .'\n" +
-					"                                        /.'/.'\nDit is de Ultieme gans!!!"
+					"                                        /.'/.'\n" +
+					"Dit is de Ultieme gans!!!"
 				);
 			}
 		}
