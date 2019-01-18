@@ -9,7 +9,7 @@ public class Speler {
 	private boolean inDePut;
 	private boolean isGefinisht;
 
-	Speler(String spelerNaam) {
+	public Speler(String spelerNaam) {
 		this.setNaam(spelerNaam);
 	}
 
@@ -31,6 +31,10 @@ public class Speler {
 	}
 
 	public boolean moetWachten() {
+		if (inDePut) {
+			System.out.println(getNaam() + " zit nog lekker warmpjes in de put.");
+			return true;
+		}
 		if (staatStilVoorBeurten > 0) {
 
 			staatStilVoorBeurten--;
@@ -41,11 +45,7 @@ public class Speler {
 			}
 			return true;
 		} else
-		return isInDePut();
-	}
-
-	public boolean isInDePut() {
-		return inDePut;
+		return false;
 	}
 
 	public void setInDePut(boolean inDePut) {
