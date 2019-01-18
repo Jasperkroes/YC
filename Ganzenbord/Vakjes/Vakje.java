@@ -15,6 +15,5 @@ public class Vakje {
 	}
 
 	public void actieOpSpeler(Speler speler) {
-		return;
 	}
 }

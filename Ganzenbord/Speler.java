@@ -76,4 +76,14 @@ public class Speler {
 	public boolean isGefinisht() {
 		return isGefinisht;
 	}
+
+	public void setStaatOpVakje(int dest){
+		this.staatOpVakje = dest;
+	}
+
+	public void setStaatStilVoorBeurten(int beurtenWachten) {
+		if (staatStilVoorBeurten == 0) {
+			this.staatStilVoorBeurten = beurtenWachten;
+		}
+	}
 }

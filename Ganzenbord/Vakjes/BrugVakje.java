@@ -1,5 +1,7 @@
 package Ganzenbord.Vakjes;
 
+import Ganzenbord.Speler;
+
 public class BrugVakje extends Vakje{
 	int brugDestination;
 
@@ -17,5 +19,11 @@ public class BrugVakje extends Vakje{
 			return super.toString() + "\tDoolhof (ga naar " + brugDestination + ")";
 		}
 		return super.toString() + "\tBrug (ga naar " + brugDestination + ")";
+	}
+
+	@Override
+	public void actieOpSpeler(Speler sp) {
+		sp.setStaatOpVakje(brugDestination);
+		System.out.println("Lekker over dat bruggetje naar "+brugDestination+" lopen");
 	}
 }
