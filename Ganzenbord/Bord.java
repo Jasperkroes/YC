@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class Bord {
 
 	//het begin en het eind tellen hier ook voor mee.
-	private static final int AANTAL_VAKJES = 64;
+	public static final int AANTAL_VAKJES = 64;
 
-	private ArrayList<Vakje> vakjes = new ArrayList<Vakje>(AANTAL_VAKJES);
+	ArrayList<Vakje> vakjes = new ArrayList<Vakje>(AANTAL_VAKJES);
 
 
 	public Bord(){
@@ -47,28 +47,9 @@ public class Bord {
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		for (Vakje v : vakjes) {
-			sb.append(v.toString()+"\n");
+			sb.append(v.toString()).append("\n");
 		}
-		return sb.toString() + "\n" +
-			"\n" +
-			"                                                        _...--.\n" +
-			"                                        _____......----'     .'\n" +
-			"                                  _..-''                   .'\n" +
-			"                                .'                       ./\n" +
-			"                        _.--._.'                       .' |\n" +
-			"                     .-'           NIELS            .-.'  /\n" +
-			"                   .'   _.-.                     .  \\   '\n" +
-			"                 .'  .'   .'    _    .-.        / `./  :\n" +
-			"               .'  .'   .'  .--' `.  |  \\  |`. |     .'\n" +
-			"            _.'  .'   .' `.'       `-'   \\ / |.'   .'\n" +
-			"         _.'  .-'   .'     `-.            `      .'\n" +
-			"       .'   .'    .'          `-.._ _ _ _ .-.    :\n" +
-			"      /    /o _.-'               .--'   .'   \\   |\n" +
-			"    .'-.__..-'                  /..    .`    / .'\n" +
-			"  .'   . '                       /.'/.'     /  |\n" +
-			" `---'                                   _.'   '\n" +
-			"                                       /.'    .'\n" +
-			"                                        /.'/.'\n";
+		return sb.toString();
 	}
 
 

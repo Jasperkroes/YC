@@ -1,5 +1,7 @@
 package Ganzenbord.Vakjes;
 
+import Ganzenbord.Speler;
+
 public class Vakje {
 	int vaknummer;
 
@@ -10,5 +12,9 @@ public class Vakje {
 	@Override
 	public String toString() {
 		return "("+vaknummer+")";
+	}
+
+	public void actieOpSpeler(Speler speler) {
+		return;
 	}
 }

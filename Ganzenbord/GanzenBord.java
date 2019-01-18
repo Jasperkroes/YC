@@ -10,6 +10,7 @@ public class GanzenBord{
 	private static final int MAX_SPELERS = 8;
 	private Bord bord;
 	private static Random rand = new Random();
+	private boolean gefinisht;
 
 	public static void main(String[] args){
 		new GanzenBord().play();
@@ -22,9 +23,70 @@ public class GanzenBord{
 		//Laat alle spelers zien
 		showPlayers();
 
+		//Maak een bord
 		bord = new Bord();
 
+		//geef aan alle spelers door op welk bord ze spelen
+		Speler.setSpeelveld(bord);
+
+		//Laat het bord zien
 		System.out.println(bord.toString());
+
+		beginnenMaar();
+
+		//kijk wie de ultieme gans is
+		showWinnaar();
+	}
+
+	private void showWinnaar() {
+		for (Speler sp : spelers) {
+			if(sp.isGefinisht()) {
+				System.out.println("\n" +
+					"\n" +
+					"                                                        _...--.\n" +
+					"                                        _____......----'     .'\n" +
+					"                                  _..-''                   .'\n" +
+					"                                .'                       ./\n" +
+					"                        _.--._.'                       .' |\n" +
+					"                     .-'        "+sp.getNaam()+"            .-.'  /\n" +
+					"                   .'   _.-.                     .  \\   '\n" +
+					"                 .'  .'   .'    _    .-.        / `./  :\n" +
+					"               .'  .'   .'  .--' `.  |  \\  |`. |     .'\n" +
+					"            _.'  .'   .' `.'       `-'   \\ / |.'   .'\n" +
+					"         _.'  .-'   .'     `-.            `      .'\n" +
+					"       .'   .'    .'          `-.._ _ _ _ .-.    :\n" +
+					"      /    /o _.-'               .--'   .'   \\   |\n" +
+					"    .'-.__..-'                  /..    .`    / .'\n" +
+					"  .'   . '                       /.'/.'     /  |\n" +
+					" `---'                                   _.'   '\n" +
+					"                                       /.'    .'\n" +
+					"                                        /.'/.'\nDit is de Ultieme gans!!!"
+				);
+			}
+		}
+	}
+
+	private void beginnenMaar() {
+		//TODO: laat spelers om de beurt gooien.
+		int currentPlayerIndex = 0;
+		Speler speler;
+		while(!gefinisht) {
+			//pak de volgende speler
+			speler = spelers.get(currentPlayerIndex);
+			//kijk of de speler mag werpen
+			if(speler.moetWachten()) {
+				continue;
+			}
+			//zet de speler op een nieuwe positie
+			speler.loopNaar(werp());
+
+			//kijk of de speler gefinisht is
+			gefinisht = speler.isGefinisht();
+
+			//verander de currentPlayerIndex naar de volgende speler
+			currentPlayerIndex = (currentPlayerIndex + 1) % spelers.size();
+		}
+
 	}
 
 	private void showPlayers() {
