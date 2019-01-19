@@ -76,6 +76,7 @@ public class GanzenBord{
 			speler = spelers.get(currentPlayerIndex);
 			//kijk of de speler mag werpen
 			if(!speler.moetWachten()) {
+				//TODO: zorg ervoor dat mensen input moeten geven voordat er gegooid wordt
 				//zet de speler op een nieuwe positie
 				speler.loopNaar(werp());
 

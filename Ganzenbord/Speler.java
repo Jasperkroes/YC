@@ -56,11 +56,8 @@ public class Speler {
 		staatOpVakje += worp;
 		Vakje volgendVakje;
 		//true iff de speler voorbij finish loopt
-		if(Bord.AANTAL_VAKJES <= staatOpVakje) {
-//			loopTerug(staatOpVakje);
-			setGefinisht(true);
-			staatOpVakje = Bord.AANTAL_VAKJES - 1;
-			return;
+		if(staatOpVakje > Bord.AANTAL_VAKJES - 1) {
+			loopTerug(staatOpVakje - (Bord.AANTAL_VAKJES - 1));
 		}
 		volgendVakje = speelveld.vakjes.get(staatOpVakje);
 		volgendVakje.actieOpSpeler(this);
@@ -69,10 +66,11 @@ public class Speler {
 
 	/**
 	 * Pas de staatOpVakje aan naar een legale positie
-	 * @param positie
+	 * @param
 	 */
-	private void loopTerug(int positie) {
-
+	private void loopTerug(int teveelGeworpenOgen) {
+		staatOpVakje = Bord.AANTAL_VAKJES -1 - teveelGeworpenOgen;
+		System.out.println(getNaam() + " heeft " + teveelGeworpenOgen + " teveel gegooid en doet " + teveelGeworpenOgen + " stappen terug.");
 	}
 
 	public void setGefinisht(boolean gefinishet) {
