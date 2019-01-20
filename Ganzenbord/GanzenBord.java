@@ -11,6 +11,7 @@ public class GanzenBord{
 	private Bord bord;
 	private static Random rand = new Random();
 	private boolean gefinisht;
+	private int currentPlayerIndex = 0;
 
 	public static void main(String[] args){
 		new GanzenBord().play();
@@ -69,7 +70,7 @@ public class GanzenBord{
 	}
 
 	private void beginnenMaar() {
-		int currentPlayerIndex = 0;
+		currentPlayerIndex = 0;
 		Speler speler;
 		while(!gefinisht) {
 			//pak de volgende speler
@@ -114,8 +115,18 @@ public class GanzenBord{
 		}
 	}
 
-	private static int werp(){
-		return rand.nextInt(6)+1;
+	private int werp(){
+		System.out.println("Typ g om te gooien "+ spelers.get(currentPlayerIndex).getNaam()+".");
+		Scanner sc = new Scanner(System.in);
+		if(sc.hasNext()) {
+			String s = sc.next();
+			if(s.equals("g")) {
+				return rand.nextInt(6)+1;
+			} else {
+				System.out.println("voer een \"g\" in om te gooien");
+			}
+		}
+		return werp();
 	}
 
 }
