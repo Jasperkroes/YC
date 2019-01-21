@@ -1,4 +1,6 @@
-class D{
+package KlasOpdrachten;
+
+public class D{
 
 	public static void main(String[] args){
 		Persoon persoona = new Persoon("man","Jasper");
@@ -28,3 +30,4 @@ class Persoon{
 	}
 
 }
+

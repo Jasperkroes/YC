@@ -1,3 +1,5 @@
+package KlasOpdrachten;
+
 import java.util.*;
 /*
 OPDRACHT:
