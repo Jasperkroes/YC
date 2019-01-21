@@ -16,7 +16,7 @@ public class Kermis {
 	private void run() {
 		initAttracties();
 		showAttracties();
-		laatMaarDraaienDieEneAttractie();
+		laatMaarDraaienDieKermis();
 	}
 
 	private void initAttracties() {
@@ -44,28 +44,35 @@ public class Kermis {
 
 	}
 
-	private void laatMaarDraaienDieEneAttractie() {
+	private void laatMaarDraaienDieKermis() {
 		Scanner sc = new Scanner(System.in);
-		if(sc.hasNext()) {
+		if(sc.hasNextLine()) {
 			if(sc.hasNextInt()) {
 				int keuze = sc.nextInt();
 				if (keuze <= attracties.size() && keuze > 0) {
 					attracties.get(keuze - 1).draaien();
 				} else {
 					System.out.println("Geef een getal tussen de 1 en 6 op om een attractie te selecteren.");
-					laatMaarDraaienDieEneAttractie();
+					laatMaarDraaienDieKermis();
 				}
 			} else {
-				String keuze = sc.next();
-				if (keuze.equals("k")) {
-					kassa.kaartjesPerAttractie();
-				} else if (keuze.equals("o")) {
-					kassa.totaleOmzet();
-				} else {
-					laatMaarDraaienDieEneAttractie();
+				String keuze = sc.nextLine();
+				switch (keuze) {
+					case "k":
+						kassa.kaartjesPerAttractie();
+						break;
+					case "o":
+						kassa.totaleOmzet();
+						break;
+					case "afbrekendieklotekermis":
+						return;
+					default:
+						laatMaarDraaienDieKermis();
+						break;
 				}
 			}
 		}
+		laatMaarDraaienDieKermis();
 	}
 
 	public static LinkedList<Attractie> getAttracties() {
