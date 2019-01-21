@@ -11,4 +11,14 @@ public class Ladderklimmen extends Attractie {
 	public static double getLadderOmzet() {
 		return ladderOmzet;
 	}
+
+	@Override
+	public void draaien(){
+		super.draaien();
+		ladderOmzet+=prijs;
+	}
+	@Override
+	public int kaartjesGekocht() {
+		return (int) (ladderOmzet/prijs);
+	}
 }

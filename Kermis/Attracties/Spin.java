@@ -17,4 +17,9 @@ public class Spin extends Attractie {
 		super.draaien();
 		spinOmzet+=prijs;
 	}
+
+	@Override
+	public int kaartjesGekocht() {
+		return (int) (spinOmzet/prijs);
+	}
 }

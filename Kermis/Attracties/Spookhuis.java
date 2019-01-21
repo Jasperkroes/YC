@@ -11,4 +11,15 @@ public class Spookhuis extends Attractie {
 	public static double getSpookhuisOmzet() {
 		return spookhuisOmzet;
 	}
+
+	@Override
+	public void draaien() {
+		super.draaien();
+		spookhuisOmzet+=prijs;
+	}
+
+	@Override
+	public int kaartjesGekocht() {
+		return (int) (spookhuisOmzet/prijs);
+	}
 }

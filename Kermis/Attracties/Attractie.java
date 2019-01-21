@@ -8,4 +8,11 @@ public abstract class Attractie {
 	public void draaien() {
 		System.out.println("De attractie "+naam+" draait!!");
 	}
+
+	@Override
+	public String toString(){
+		return "De attractie " + naam + " ";
+	}
+
+	public abstract int kaartjesGekocht();
 }

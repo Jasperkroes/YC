@@ -11,4 +11,15 @@ public class Hawaii extends Attractie {
 	public static double getHawaiiOmzet() {
 		return hawaiiOmzet;
 	}
+
+	@Override
+	public void draaien(){
+		super.draaien();
+		hawaiiOmzet+=prijs;
+	}
+
+	@Override
+	public int kaartjesGekocht() {
+		return (int) (hawaiiOmzet/prijs);
+	}
 }
