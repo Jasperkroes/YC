@@ -66,9 +66,6 @@ public class Kermis {
 						break;
 					case "afbrekendieklotekermis":
 						return;
-					default:
-						laatMaarDraaienDieKermis();
-						break;
 				}
 			}
 		}

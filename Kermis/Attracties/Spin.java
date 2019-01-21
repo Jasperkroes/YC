@@ -1,6 +1,6 @@
 package Kermis.Attracties;
 
-public class Spin extends Attractie {
+public class Spin extends RisicoRijkeAttractie {
 	private static double spinOmzet;
 
 	public Spin() {

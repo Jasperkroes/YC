@@ -1,6 +1,6 @@
 package Kermis.Attracties;
 
-public class Hawaii extends Attractie {
+public class Hawaii extends RisicoRijkeAttractie{
 	private static double hawaiiOmzet;
 
 	public Hawaii() {
