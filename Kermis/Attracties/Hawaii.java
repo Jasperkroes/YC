@@ -6,6 +6,7 @@ public class Hawaii extends RisicoRijkeAttractie{
 	public Hawaii() {
 		naam = "Hawaii";
 		prijs = 2.90;
+		draailimiet = 10;
 	}
 
 	public static double getHawaiiOmzet() {
@@ -14,8 +15,13 @@ public class Hawaii extends RisicoRijkeAttractie{
 
 	@Override
 	public void draaien(){
-		super.draaien();
-		hawaiiOmzet+=prijs;
+		if(draaiCount<draailimiet) {
+			draaiCount++;
+			super.draaien();
+			hawaiiOmzet += prijs;
+		} else {
+			System.out.println("De monteur moet komen voordat " + naam + " weer kan draaien.\ntyp (m) om de monteur zijnn rondje te laten doen.");
+		}
 	}
 
 	@Override

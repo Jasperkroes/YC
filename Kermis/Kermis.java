@@ -64,12 +64,20 @@ public class Kermis {
 					case "o":
 						kassa.totaleOmzet();
 						break;
+					case "m":
+						for (Attractie a : attracties) {
+							if(a instanceof RisicoRijkeAttractie) {
+								System.out.println(a);
+								((RisicoRijkeAttractie) a).opstellingsKeuring();
+							}
+						}
+						break;
 					case "afbrekendieklotekermis":
-						return;
+						System.exit(0);
 				}
 			}
+			laatMaarDraaienDieKermis();
 		}
-		laatMaarDraaienDieKermis();
 	}
 
 	public static LinkedList<Attractie> getAttracties() {
