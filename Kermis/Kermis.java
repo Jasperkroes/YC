@@ -38,7 +38,8 @@ public class Kermis {
 			"(5) Hawaii\n" +
 			"(6) Ladderklimmen\n" +
 			"typ (k) om het aantal kaartjes te showen\n" +
-			"typ (o) om de totale omzet te tonen";
+			"typ (o) om de totale omzet te tonen\n" +
+			"typ (b) om de belastingman te laten graaien.";
 
 		System.out.println(sb);
 
@@ -72,6 +73,10 @@ public class Kermis {
 							}
 						}
 						break;
+					case "b":
+						new BelastingMan(this).graaien();
+						System.out.println("Er is in totaal €" + BelastingMan.belasting + " aan belasting betaald");
+						break;
 					case "afbrekendieklotekermis":
 						System.exit(0);
 				}
@@ -82,5 +87,9 @@ public class Kermis {
 
 	public static LinkedList<Attractie> getAttracties() {
 		return attracties;
+	}
+
+	public Kassa getKassa() {
+		return this.kassa;
 	}
 }

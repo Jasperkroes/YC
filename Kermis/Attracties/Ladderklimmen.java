@@ -1,24 +1,26 @@
 package Kermis.Attracties;
 
-public class Ladderklimmen extends Attractie {
-	private static double ladderOmzet;
+import Kermis.Kassa;
+import Kermis.Kermis;
 
+public class Ladderklimmen extends Attractie implements GokAttractie {
 	public Ladderklimmen() {
 		naam = "Ladderklimmen";
 		prijs = 5.0;
 	}
 
-	public static double getLadderOmzet() {
-		return ladderOmzet;
-	}
-
 	@Override
 	public void draaien(){
 		super.draaien();
-		ladderOmzet+=prijs;
+		omzet+=prijs;
 	}
 	@Override
 	public int kaartjesGekocht() {
-		return (int) (ladderOmzet/prijs);
+		return (int) (omzet/prijs);
+	}
+
+	@Override
+	public double kansSpelBelastingBetalen() {
+		return omzet * .3;
 	}
 }

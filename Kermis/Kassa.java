@@ -2,21 +2,20 @@ package Kermis;
 
 import Kermis.Attracties.*;
 
+import java.util.LinkedList;
+
 import static jdk.nashorn.internal.objects.NativeMath.round;
 
 public class Kassa {
-	private static double totaalBelastBedrag;
-	private static double belastingBetaald;
+	public static double totaalBelastBedrag;
+	public static double belastingBetaald;
 
 
 	void totaleOmzet() {
-		double omzet = Spin.getSpinOmzet() +
-		Botsauto.getBotsautoOmzet() +
-		Spiegelpaleis.getSpiegelpaleisOmzet() +
-		Spookhuis.getSpookhuisOmzet() +
-		Hawaii.getHawaiiOmzet() +
-		Ladderklimmen.getLadderOmzet() -
-		belastingBetaald;
+		double omzet = 0.0;
+		for (Attractie a: Kermis.getAttracties()) {
+			omzet += a.getOmzet();
+		}
 
 		System.out.println("De gehele kermis heeft een totale omzet van: " + omzet);
 	}
@@ -25,5 +24,15 @@ public class Kassa {
 		for(Attractie a : Kermis.getAttracties()) {
 			System.out.println(a + "heeft " + a.kaartjesGekocht() + " kaartjes verkocht.");
 		}
+	}
+
+	public LinkedList<Attractie> getGokAttracties() {
+		LinkedList<Attractie> ll = new LinkedList<>();
+		for (Attractie a:Kermis.getAttracties()) {
+			if ( a instanceof  GokAttractie) {
+				ll.add(a);
+			}
+		}
+		return ll;
 	}
 }

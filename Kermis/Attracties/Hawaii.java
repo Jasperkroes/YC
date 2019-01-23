@@ -1,7 +1,6 @@
 package Kermis.Attracties;
 
 public class Hawaii extends RisicoRijkeAttractie{
-	private static double hawaiiOmzet;
 
 	public Hawaii() {
 		naam = "Hawaii";
@@ -9,8 +8,8 @@ public class Hawaii extends RisicoRijkeAttractie{
 		draailimiet = 10;
 	}
 
-	public static double getHawaiiOmzet() {
-		return hawaiiOmzet;
+	public double getOmzet() {
+		return omzet;
 	}
 
 	@Override
@@ -18,7 +17,7 @@ public class Hawaii extends RisicoRijkeAttractie{
 		if(draaiCount<draailimiet) {
 			draaiCount++;
 			super.draaien();
-			hawaiiOmzet += prijs;
+			omzet += prijs;
 		} else {
 			System.out.println("De monteur moet komen voordat " + naam + " weer kan draaien.\ntyp (m) om de monteur zijnn rondje te laten doen.");
 		}
@@ -26,6 +25,6 @@ public class Hawaii extends RisicoRijkeAttractie{
 
 	@Override
 	public int kaartjesGekocht() {
-		return (int) (hawaiiOmzet/prijs);
+		return (int) (omzet/prijs);
 	}
 }

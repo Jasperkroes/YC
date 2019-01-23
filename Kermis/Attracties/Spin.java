@@ -1,7 +1,6 @@
 package Kermis.Attracties;
 
-public class Spin extends RisicoRijkeAttractie {
-	private static double spinOmzet;
+public class Spin extends RisicoRijkeAttractie implements GokAttractie{
 
 	public Spin() {
 		naam = "Spin";
@@ -9,16 +8,12 @@ public class Spin extends RisicoRijkeAttractie {
 		draailimiet = 5;
 	}
 
-	public static double getSpinOmzet() {
-		return spinOmzet;
-	}
-
 	@Override
 	public void draaien() {
 		if(draaiCount<draailimiet) {
 			draaiCount++;
 			super.draaien();
-			spinOmzet += prijs;
+			omzet += prijs;
 		} else {
 			System.out.println("De monteur moet komen voordat " + naam + " weer kan draaien.\ntyp (m) om de monteur zijnn rondje te laten doen.");
 		}
@@ -26,6 +21,11 @@ public class Spin extends RisicoRijkeAttractie {
 
 	@Override
 	public int kaartjesGekocht() {
-		return (int) (spinOmzet/prijs);
+		return (int) (omzet/prijs);
+	}
+
+	@Override
+	public double kansSpelBelastingBetalen() {
+		return omzet*.3 * 100;
 	}
 }
