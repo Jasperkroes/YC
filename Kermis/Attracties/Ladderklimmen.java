@@ -14,10 +14,6 @@ public class Ladderklimmen extends Attractie implements GokAttractie {
 		super.draaien();
 		omzet+=prijs;
 	}
-	@Override
-	public int kaartjesGekocht() {
-		return (int) (omzet/prijs);
-	}
 
 	@Override
 	public double kansSpelBelastingBetalen() {

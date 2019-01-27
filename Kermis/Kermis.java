@@ -66,9 +66,9 @@ public class Kermis {
 						kassa.totaleOmzet();
 						break;
 					case "m":
+						System.out.println("De Monteur doet zijn ronde om alle risicorijke attracties te maken.");
 						for (Attractie a : attracties) {
 							if(a instanceof RisicoRijkeAttractie) {
-								System.out.println(a);
 								((RisicoRijkeAttractie) a).opstellingsKeuring();
 							}
 						}

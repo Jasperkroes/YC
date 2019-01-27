@@ -15,9 +15,11 @@ public abstract class Attractie {
 		return "De attractie " + naam + " ";
 	}
 
-	public abstract int kaartjesGekocht();
-
 	public double getOmzet() {
 		return omzet;
+	}
+
+	public int kaartjesGekocht() {
+		return (int) Math.round(omzet/prijs);
 	}
 }

@@ -1,5 +1,7 @@
 package Kermis.Attracties;
 
+import Kermis.AttractieMoetGekeurdWordenException;
+
 public class Hawaii extends RisicoRijkeAttractie{
 
 	public Hawaii() {
@@ -14,17 +16,13 @@ public class Hawaii extends RisicoRijkeAttractie{
 
 	@Override
 	public void draaien(){
-		if(draaiCount<draailimiet) {
+		try{
+			checkLegaalOmTeDraaien();
 			draaiCount++;
 			super.draaien();
 			omzet += prijs;
-		} else {
-			System.out.println("De monteur moet komen voordat " + naam + " weer kan draaien.\ntyp (m) om de monteur zijnn rondje te laten doen.");
+		}catch (AttractieMoetGekeurdWordenException e){
+			System.out.println("De monteur moet komen voordat " + naam + " weer kan draaien.\ntyp (m) om de monteur zijn rondje te laten doen.");
 		}
-	}
-
-	@Override
-	public int kaartjesGekocht() {
-		return (int) (omzet/prijs);
 	}
 }

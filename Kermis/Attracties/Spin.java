@@ -1,5 +1,7 @@
 package Kermis.Attracties;
 
+import Kermis.AttractieMoetGekeurdWordenException;
+
 public class Spin extends RisicoRijkeAttractie implements GokAttractie{
 
 	public Spin() {
@@ -10,18 +12,14 @@ public class Spin extends RisicoRijkeAttractie implements GokAttractie{
 
 	@Override
 	public void draaien() {
-		if(draaiCount<draailimiet) {
+		try {
+			checkLegaalOmTeDraaien();
 			draaiCount++;
 			super.draaien();
 			omzet += prijs;
-		} else {
+		} catch (AttractieMoetGekeurdWordenException e) {
 			System.out.println("De monteur moet komen voordat " + naam + " weer kan draaien.\ntyp (m) om de monteur zijnn rondje te laten doen.");
 		}
-	}
-
-	@Override
-	public int kaartjesGekocht() {
-		return (int) (omzet/prijs);
 	}
 
 	@Override

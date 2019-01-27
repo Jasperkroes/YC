@@ -12,9 +12,4 @@ public class Spiegelpaleis extends Attractie {
 		super.draaien();
 		omzet+=prijs;
 	}
-
-	@Override
-	public int kaartjesGekocht() {
-		return (int) (omzet/prijs);
-	}
 }
