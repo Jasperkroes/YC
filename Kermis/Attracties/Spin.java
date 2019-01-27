@@ -26,6 +26,6 @@ public class Spin extends RisicoRijkeAttractie implements GokAttractie{
 
 	@Override
 	public double kansSpelBelastingBetalen() {
-		return omzet*.3 * 100;
+		return omzet*.3;
 	}
 }

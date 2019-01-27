@@ -75,7 +75,7 @@ public class Kermis {
 						break;
 					case "b":
 						new BelastingMan(this).graaien();
-						System.out.println("Er is in totaal €" + BelastingMan.belasting + " aan belasting betaald");
+						System.out.println("Er is in totaal €" + kassa.getBelastingBetaald() + " aan belasting betaald");
 						break;
 					case "afbrekendieklotekermis":
 						System.exit(0);

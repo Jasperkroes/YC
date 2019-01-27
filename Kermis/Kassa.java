@@ -7,8 +7,11 @@ import java.util.LinkedList;
 import static jdk.nashorn.internal.objects.NativeMath.round;
 
 public class Kassa {
-	public static double totaalBelastBedrag;
-	public static double belastingBetaald;
+	private static double belastingBetaald;
+
+	public static double getBelastingBetaald() {
+		return belastingBetaald;
+	}
 
 
 	void totaleOmzet() {
@@ -17,7 +20,7 @@ public class Kassa {
 			omzet += a.getOmzet();
 		}
 
-		System.out.println("De gehele kermis heeft een totale omzet van: " + omzet);
+		System.out.println("De gehele kermis heeft een totale omzet van: €" + omzet);
 	}
 
 	void kaartjesPerAttractie() {
@@ -34,5 +37,9 @@ public class Kassa {
 			}
 		}
 		return ll;
+	}
+
+	public void setBelastingManIsGewwest(BelastingMan b) {
+		belastingBetaald = b.getBelasting();
 	}
 }

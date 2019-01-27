@@ -5,20 +5,26 @@ import Kermis.Attracties.GokAttractie;
 
 public class BelastingMan {
 	Kermis kermis;
-	static double belasting;
+	Kassa kassa;
+	private static double belasting;
 
 	public BelastingMan(Kermis kermisMan) {
 		this.kermis = kermisMan;
+		this.kassa = kermis.getKassa();
 	}
 
 	public void graaien(){
 
 		double kansSpelOmzet = 0.0;
-		for (Attractie ga : kermis.getKassa().getGokAttracties()) {
+		for (Attractie ga : kassa.getGokAttracties()) {
 			kansSpelOmzet += ((GokAttractie ) ga).kansSpelBelastingBetalen();
 		}
 		belasting = kansSpelOmzet;
+		kassa.setBelastingManIsGewwest(this);
 
 	}
 
+	public static double getBelasting() {
+		return belasting;
+	}
 }
